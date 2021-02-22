@@ -14,10 +14,7 @@ public class NasaDetails extends AppCompatActivity {
     private ImageView imageViewDetails;
     private TextView titleViewDetails , imageViewExplanationDetails;
 
-    public NasaDetails(ImageView imageViewDetails, TextView titleViewDetails, TextView imageViewExplanationDetails) {
-        this.imageViewDetails = imageViewDetails;
-        this.titleViewDetails = titleViewDetails;
-        this.imageViewExplanationDetails = imageViewExplanationDetails;
+    public NasaDetails() {
     }
 
     @Override

@@ -3,9 +3,9 @@ package com.example.myapplication.viewmodel;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-import com.example.myapplication.model.Nasa;
-import com.example.myapplication.network.ApiService;
-import com.example.myapplication.network.RetroInstance;
+import com.example.myapplication.data.model.Nasa;
+import com.example.myapplication.data.network.ApiService;
+import com.example.myapplication.data.network.RetroInstance;
 
 import java.util.List;
 

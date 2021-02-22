@@ -1,7 +1,6 @@
 package com.example.myapplication.adapter;
 
 import android.content.Context;
-import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,9 +14,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
-import com.example.myapplication.NasaDetails;
 import com.example.myapplication.R;
-import com.example.myapplication.model.Nasa;
+import com.example.myapplication.data.model.Nasa;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,9 +26,14 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     private static final String TAG = "RecyclerViewAdapter";
 
 
-
     public List<Nasa> nasaList = new ArrayList<>();
     private Context mContext;
+
+    public Nasa getSelectedNasaItem() {
+        return selectedNasaItem;
+    }
+
+    private Nasa selectedNasaItem;
 
     public void setNasaList(List<Nasa> nasaList) {
         this.nasaList = nasaList;
@@ -69,7 +72,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
                 Toast.makeText(mContext, nasaList.get(position).getTitle(),Toast.LENGTH_SHORT).show();
 
-                getSelectedNasaItem(position);
+               selectedNasaItem =  getSelectedNasaItem(position);
             }
         });
     }
