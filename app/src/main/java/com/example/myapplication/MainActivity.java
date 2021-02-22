@@ -1,5 +1,6 @@
 package com.example.myapplication;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -9,6 +10,7 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.os.Parcelable;
 import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
@@ -17,7 +19,6 @@ import com.example.myapplication.adapter.RecyclerViewAdapter;
 import com.example.myapplication.model.Nasa;
 import com.example.myapplication.viewmodel.NasaViewModel;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
@@ -35,7 +36,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Log.d(TAG, "onCreate: started.");
-
         initRecyclerView();
     }
 
@@ -47,6 +47,7 @@ public class MainActivity extends AppCompatActivity {
         adapter = new RecyclerViewAdapter(nasaList,this);
         recyclerView.setAdapter(adapter);
         initViewModel();
+        onNasaItemClick();
 
     }
 
@@ -68,4 +69,11 @@ public class MainActivity extends AppCompatActivity {
         });
         nasaViewModel.makeApiCall();
     }
+
+    public void onNasaItemClick(int position){
+        Intent intent = new Intent(this,NasaDetails.class);
+        intent.putExtra("Nasa element", (Parcelable) adapter.getSelectedNasaItem(position));
+        startActivity(intent);
+    }
+
 }
