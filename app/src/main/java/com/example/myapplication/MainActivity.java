@@ -18,6 +18,7 @@ import com.example.myapplication.adapter.RecyclerViewAdapter;
 import com.example.myapplication.data.model.Nasa;
 import com.example.myapplication.viewmodel.NasaViewModel;
 
+import java.io.Serializable;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
@@ -72,11 +73,10 @@ public class MainActivity extends AppCompatActivity {
     public void onNasaItemClick(){
 
         //check that the nasa item isn't null
-        Log.d(TAG, "onNasaItemClick: " + adapter.getSelectedNasaItem());
+        Log.d(TAG, "onNasaItemClickActivity: " + adapter.getSelectedNasaItem());
 
-
-        Intent intent = new Intent(this,NasaDetails.class);
-        intent.putExtra("NASAINTENT", (Parcelable) adapter.getSelectedNasaItem());
+        Intent intent = new Intent(this, NasaDetails.class);
+        intent.putExtra("Nasa", (Parcelable) adapter.getSelectedNasaItem());
         startActivity(intent);
     }
 

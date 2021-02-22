@@ -7,15 +7,13 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.myapplication.data.model.Nasa;
 import com.example.myapplication.viewmodel.NasaViewModel;
 
 public class NasaDetails extends AppCompatActivity {
 
     private ImageView imageViewDetails;
     private TextView titleViewDetails , imageViewExplanationDetails;
-
-    public NasaDetails() {
-    }
 
     @Override
     protected void  onCreate(Bundle savedInstanceState) {
@@ -30,9 +28,9 @@ public class NasaDetails extends AppCompatActivity {
     }
 
     private void getDataFromIntent() {
-        if(getIntent().hasExtra("Nasa element")){
-            NasaViewModel nasaViewModel = getIntent().getParcelableExtra("Nasa element");
-            Log.v("INTENTDATA","incoming intent" + nasaViewModel);
+        if(getIntent().hasExtra("Nasa")){
+            Nasa nasa = getIntent().getParcelableExtra("Nasa");
+            Log.v("INTENTDATANASADETAILS","incoming intent" + nasa);
         }
     }
 

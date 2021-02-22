@@ -72,19 +72,11 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
                 Toast.makeText(mContext, nasaList.get(position).getTitle(),Toast.LENGTH_SHORT).show();
 
-               selectedNasaItem =  getSelectedNasaItem(position);
+               selectedNasaItem =  nasaList.get(position);
             }
         });
     }
 
-    public Nasa getSelectedNasaItem(int position){
-        if (nasaList != null){
-            if (nasaList.size() > 0){
-                return nasaList.get(position);
-            }
-        }
-        return null;
-    }
 
     @Override
     public int getItemCount() {
