@@ -20,7 +20,7 @@
         android:layout_marginLeft="30dp"
         android:layout_toRightOf="@id/image"
         android:text="France"
-        android:textColor="@color/black"
+        android:textColor="@color/white"
         android:textSize="17sp" />
 
 
