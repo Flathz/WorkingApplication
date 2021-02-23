@@ -35,14 +35,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/detail_image_view" />
 
-    <ScrollView
-        android:id="@+id/scroll_view"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/detail_image_title_text">
-
         <TextView
             android:id="@+id/detail_image_explanation_text"
             android:layout_width="wrap_content"
@@ -57,7 +49,6 @@
             android:gravity="center"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/scroll_view" />
-    </ScrollView>
+            app:layout_constraintTop_toBottomOf="@+id/detail_image_title_text" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
