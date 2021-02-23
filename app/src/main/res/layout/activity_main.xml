@@ -9,7 +9,8 @@
     <com.google.android.material.switchmaterial.SwitchMaterial
         android:id="@+id/linear_grid_switch"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"></com.google.android.material.switchmaterial.SwitchMaterial>
+        android:layout_height="wrap_content"
+        android:background="@color/purple_500"></com.google.android.material.switchmaterial.SwitchMaterial>
 
 
     <androidx.recyclerview.widget.RecyclerView
