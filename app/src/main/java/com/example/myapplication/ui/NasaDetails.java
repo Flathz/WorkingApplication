@@ -37,7 +37,7 @@ public class NasaDetails extends AppCompatActivity {
     private void setDataFromIntent() {
         Nasa nasa = getIntent().getParcelableExtra(EXTRA_NASA);
 
-        Glide.with(this).load(nasa.getUrl()).into(imageViewDetails);
+        Glide.with(this).load(nasa.getUrl()).centerCrop().into(imageViewDetails);
         titleViewDetails.setText(nasa.getTitle());
         imageViewExplanationDetails.setText(nasa.getExplanation());
     }

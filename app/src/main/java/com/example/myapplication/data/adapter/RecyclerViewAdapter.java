@@ -27,7 +27,7 @@ import de.hdodenhof.circleimageview.CircleImageView;
 
 public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder> {
     private static final String TAG = "RecyclerViewAdapter";
-    public List<Nasa> nasaList = new ArrayList<>();
+    public List<Nasa> nasaList;
     private Context mContext;
 
     public void setNasaList(List<Nasa> nasaList) {
@@ -65,15 +65,13 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
             public void onClick(View v) {
                 Log.d(TAG, "onClick: clicked on: " + nasaList.get(position).getTitle());
 
-                Toast.makeText(mContext, nasaList.get(position).getTitle(),Toast.LENGTH_SHORT).show();
-
                 onClickGetData();
             }
 
             private void onClickGetData() {
                 Nasa selectedNasaItem =  nasaList.get(position);
                 Intent detailActivity = new Intent(mContext, NasaDetails.class);
-                detailActivity.putExtra(NasaDetails.EXTRA_NASA, (Parcelable) selectedNasaItem);
+                detailActivity.putExtra(NasaDetails.EXTRA_NASA, selectedNasaItem);
                 mContext.startActivity(detailActivity);
             }
         });

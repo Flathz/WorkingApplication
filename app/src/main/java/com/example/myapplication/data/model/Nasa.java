@@ -9,12 +9,6 @@ public class Nasa implements Parcelable {
     private String url;
     private String explanation;
 
-    public Nasa(String title, String url, String explanation) {
-        this.title = title;
-        this.url = url;
-        this.explanation = explanation;
-    }
-
     public String getTitle() {
         return title;
     }

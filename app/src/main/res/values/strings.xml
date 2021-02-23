@@ -6,6 +6,7 @@
     <string name="second_fragment_label">Second Fragment</string>
     <string name="next">Next</string>
     <string name="previous">Previous</string>
+    <string name="image_description">Image description</string>
 
     <string name="noResults">NO RESULTS FOUND</string>
 
