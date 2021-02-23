@@ -10,6 +10,13 @@
         android:id="@+id/linear_grid_switch"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:text="@string/app_name"
+        android:textOn="Grid"
+        android:textSize="@dimen/title_size"
+        android:textOff="Linear"
+        android:gravity="center"
+        android:textStyle="bold"
+        android:textColor="@color/white"
         android:background="@color/top_bar"></com.google.android.material.switchmaterial.SwitchMaterial>
 
 
