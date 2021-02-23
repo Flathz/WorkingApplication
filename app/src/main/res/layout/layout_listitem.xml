@@ -8,8 +8,8 @@
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/image"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
+        android:layout_width="@dimen/layout_list_item"
+        android:layout_height="@dimen/layout_list_item"
         android:src="@mipmap/ic_launcher"></de.hdodenhof.circleimageview.CircleImageView>
 
     <TextView
@@ -17,11 +17,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
-        android:layout_marginLeft="30dp"
+        android:layout_marginLeft="@dimen/layout_margin"
         android:layout_toRightOf="@id/image"
         android:text="France"
         android:textColor="@color/white"
-        android:textSize="17sp" />
+        android:textSize="@dimen/image_title_text" />
 
 
     <TextView
