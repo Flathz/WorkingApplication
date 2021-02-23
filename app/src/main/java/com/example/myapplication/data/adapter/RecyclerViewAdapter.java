@@ -1,4 +1,4 @@
-package com.example.myapplication.adapter;
+package com.example.myapplication.data.adapter;
 
 import android.content.Context;
 import android.content.Intent;
@@ -16,7 +16,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
-import com.example.myapplication.NasaDetails;
+import com.example.myapplication.ui.NasaDetails;
 import com.example.myapplication.R;
 import com.example.myapplication.data.model.Nasa;
 

@@ -1,4 +1,4 @@
-package com.example.myapplication;
+package com.example.myapplication.ui;
 import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.Observer;
@@ -8,9 +8,11 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
-import com.example.myapplication.adapter.RecyclerViewAdapter;
+
+import com.example.myapplication.R;
+import com.example.myapplication.data.adapter.RecyclerViewAdapter;
 import com.example.myapplication.data.model.Nasa;
-import com.example.myapplication.viewmodel.NasaViewModel;
+import com.example.myapplication.ui.viewmodel.NasaViewModel;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
