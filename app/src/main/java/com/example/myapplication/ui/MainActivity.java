@@ -3,16 +3,20 @@ import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
+import android.widget.CompoundButton;
 import android.widget.TextView;
 
 import com.example.myapplication.R;
 import com.example.myapplication.data.adapter.RecyclerViewAdapter;
 import com.example.myapplication.data.model.Nasa;
 import com.example.myapplication.ui.viewmodel.NasaViewModel;
+import com.google.android.material.switchmaterial.SwitchMaterial;
+
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
@@ -37,10 +41,27 @@ public class MainActivity extends AppCompatActivity {
     private void initRecyclerView(){
         Log.d(TAG, "initRecyclerView: init recyclerView");
         RecyclerView recyclerView = findViewById(R.id.recycler_view);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        SwitchMaterial switchMaterial = findViewById(R.id.linear_grid_switch);
+        changeLayoutOnSwitchPress(recyclerView, switchMaterial);
         adapter = new RecyclerViewAdapter(nasaList,this);
         recyclerView.setAdapter(adapter);
         initViewModel();
+    }
+
+    private void changeLayoutOnSwitchPress(RecyclerView recyclerView, SwitchMaterial switchMaterial) {
+        recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
+        switchMaterial.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                // do something, the isChecked will be
+                // true if the switch is in the On position
+                if(isChecked == true){
+                    recyclerView.setLayoutManager(new GridLayoutManager(getApplicationContext(),2));
+                }
+                else{
+                    recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
+                }
+            }
+        });
     }
 
     private void initViewModel() {
