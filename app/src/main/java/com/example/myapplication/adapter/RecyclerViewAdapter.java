@@ -1,6 +1,8 @@
 package com.example.myapplication.adapter;
 
 import android.content.Context;
+import android.content.Intent;
+import android.os.Parcelable;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,6 +16,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
+import com.example.myapplication.NasaDetails;
 import com.example.myapplication.R;
 import com.example.myapplication.data.model.Nasa;
 
@@ -24,16 +27,8 @@ import de.hdodenhof.circleimageview.CircleImageView;
 
 public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder> {
     private static final String TAG = "RecyclerViewAdapter";
-
-
     public List<Nasa> nasaList = new ArrayList<>();
     private Context mContext;
-
-    public Nasa getSelectedNasaItem() {
-        return selectedNasaItem;
-    }
-
-    private Nasa selectedNasaItem;
 
     public void setNasaList(List<Nasa> nasaList) {
         this.nasaList = nasaList;
@@ -72,7 +67,14 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
                 Toast.makeText(mContext, nasaList.get(position).getTitle(),Toast.LENGTH_SHORT).show();
 
-               selectedNasaItem =  nasaList.get(position);
+                onClickGetData();
+            }
+
+            private void onClickGetData() {
+                Nasa selectedNasaItem =  nasaList.get(position);
+                Intent detailActivity = new Intent(mContext, NasaDetails.class);
+                detailActivity.putExtra(NasaDetails.EXTRA_NASA, (Parcelable) selectedNasaItem);
+                mContext.startActivity(detailActivity);
             }
         });
     }

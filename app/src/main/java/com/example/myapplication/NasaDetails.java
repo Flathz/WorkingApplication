@@ -1,19 +1,21 @@
 package com.example.myapplication;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.bumptech.glide.Glide;
 import com.example.myapplication.data.model.Nasa;
-import com.example.myapplication.viewmodel.NasaViewModel;
 
 public class NasaDetails extends AppCompatActivity {
 
     private ImageView imageViewDetails;
     private TextView titleViewDetails , imageViewExplanationDetails;
+
+    /* String to identify the intent */
+    public static final String EXTRA_NASA = "extra nasa";
 
     @Override
     protected void  onCreate(Bundle savedInstanceState) {
@@ -24,15 +26,19 @@ public class NasaDetails extends AppCompatActivity {
         titleViewDetails = findViewById(R.id.detail_image_title_text);
         imageViewExplanationDetails = findViewById(R.id.detail_image_explanation_text);
 
-        getDataFromIntent();
+        setDataFromIntent();
+
     }
 
-    private void getDataFromIntent() {
-        if(getIntent().hasExtra("Nasa")){
-            Nasa nasa = getIntent().getParcelableExtra("Nasa");
-            Log.v("INTENTDATANASADETAILS","incoming intent" + nasa);
-        }
-    }
+    /** This function is made to get Data from intent in adapter and to set the views with that data
+     *
+     */
+    private void setDataFromIntent() {
+        Nasa nasa = getIntent().getParcelableExtra(EXTRA_NASA);
 
+        Glide.with(this).load(nasa.getUrl()).into(imageViewDetails);
+        titleViewDetails.setText(nasa.getTitle());
+        imageViewExplanationDetails.setText(nasa.getExplanation());
+    }
 
 }
