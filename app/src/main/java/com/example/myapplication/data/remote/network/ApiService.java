@@ -1,6 +1,6 @@
-package com.example.myapplication.data.network;
+package com.example.myapplication.data.remote.network;
 
-import com.example.myapplication.data.model.Nasa;
+import com.example.myapplication.data.remote.model.Nasa;
 
 import java.util.List;
 
@@ -14,4 +14,6 @@ public interface ApiService {
 
     @GET("?count=20&api_key="+API_KEY)
     Call<List<Nasa>> getNasaList();
+
+
 }

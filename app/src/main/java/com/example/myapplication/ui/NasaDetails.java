@@ -8,7 +8,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.bumptech.glide.Glide;
 import com.example.myapplication.R;
-import com.example.myapplication.data.model.Nasa;
+import com.example.myapplication.data.remote.model.Nasa;
 
 public class NasaDetails extends AppCompatActivity {
 

@@ -12,8 +12,8 @@ import android.widget.CompoundButton;
 import android.widget.TextView;
 
 import com.example.myapplication.R;
-import com.example.myapplication.data.adapter.RecyclerViewAdapter;
-import com.example.myapplication.data.model.Nasa;
+import com.example.myapplication.data.remote.adapter.RecyclerViewAdapter;
+import com.example.myapplication.data.remote.model.Nasa;
 import com.example.myapplication.ui.viewmodel.NasaViewModel;
 import com.google.android.material.switchmaterial.SwitchMaterial;
 
