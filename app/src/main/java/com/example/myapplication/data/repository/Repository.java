@@ -45,7 +45,10 @@ public class Repository {
 
     //create multiple async tasks to deal with blockaged with maindatabase.
 
-
+    /** Since i don't use a dependency injection, i need to figure out another way to deal with the room database.
+     * Fortunately with me, it's possible to bypass the prevention of modification on the main database by
+     * adding multiple async tasks.
+     */
     private static class InsertNasaAsyncTask extends AsyncTask<Nasa,Void,Void> {
 
         private NasaDao nasaDao;

@@ -10,6 +10,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.CompoundButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.myapplication.R;
 import com.example.myapplication.data.remote.adapter.RecyclerViewAdapter;
@@ -65,13 +66,15 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void initViewModel() {
-        nasaViewModel = new ViewModelProvider(this).get(NasaViewModel.class);
         TextView notFound = findViewById(R.id.no_results);
+        nasaViewModel = new ViewModelProvider(this, ViewModelProvider.AndroidViewModelFactory.getInstance(this.getApplication())).get(NasaViewModel.class);
         nasaViewModel.getNasaListObserver().observe(this, new Observer<List<Nasa>>() {
             @Override
             public void onChanged(List<Nasa> nasaList) {
                 if(nasaList != null){
                     adapter.setNasaList(nasaList);
+                    addApiListToDatabase(nasaList);
+
                 }
                 else{
                     notFound.setVisibility(View.VISIBLE);
@@ -81,6 +84,18 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         nasaViewModel.makeApiCall();
+    }
+
+    /** This function allows us to add the whole list of items in our room database
+     *
+     * @param nasaList
+     */
+    private void addApiListToDatabase(List<Nasa> nasaList) {
+        for (Nasa nasa:
+             nasaList) {
+            nasaViewModel.insert(nasa);
+
+        }
     }
 
 }
