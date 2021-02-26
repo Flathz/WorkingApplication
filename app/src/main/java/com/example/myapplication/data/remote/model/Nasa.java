@@ -3,11 +3,18 @@ package com.example.myapplication.data.remote.model;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-public class Nasa implements Parcelable {
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
 
-    private String title;
-    private String url;
-    private String explanation;
+@Entity
+public class Nasa implements Parcelable {
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public String getTitle() {
         return title;
@@ -33,7 +40,15 @@ public class Nasa implements Parcelable {
         this.explanation = explanation;
     }
 
+    @PrimaryKey
+    private int id;
+    private String title;
+    private String url;
+    private String explanation;
+    public Nasa(){}
+
     protected Nasa(Parcel in) {
+        id = in.readInt();
         title = in.readString();
         url = in.readString();
         explanation = in.readString();
@@ -46,6 +61,7 @@ public class Nasa implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
+        dest.writeInt(id);
         dest.writeString(title);
         dest.writeString(url);
         dest.writeString(explanation);

@@ -7,24 +7,24 @@ import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.Query;
 
-import com.example.myapplication.data.local.entity.NasaEntity;
+import com.example.myapplication.data.remote.model.Nasa;
 
 import java.util.List;
 
 @Dao
 public interface NasaDao {
 
-    @Query("SELECT * from NasaEntity")
-    LiveData<List<NasaEntity>> getAllEntities();
+    @Query("SELECT * from Nasa")
+    LiveData<List<Nasa>> getAllEntities();
 
     @Insert
-    void insertAll(NasaEntity... nasaEntities);
+    void insertAll(Nasa... nasas);
 
     @Insert
-    void insert(NasaEntity nasaEntity);
+    void insert(Nasa nasa);
 
     @Delete
-    void delete(NasaEntity nasaEntity);
+    void delete(Nasa nasa);
 
 
 }

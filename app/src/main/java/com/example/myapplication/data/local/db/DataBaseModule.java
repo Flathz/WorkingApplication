@@ -8,7 +8,7 @@ import com.example.myapplication.data.local.dao.NasaDao;
 
 public class DataBaseModule {
     public static NasaDatabase provideNasaDB(Application application){
-        return Room.databaseBuilder(application,NasaDatabase.class,"Favorite Database")
+        return Room.databaseBuilder(application,NasaDatabase.class,"Nasa Database")
                 .fallbackToDestructiveMigration()
                 .allowMainThreadQueries()
                 .build();
