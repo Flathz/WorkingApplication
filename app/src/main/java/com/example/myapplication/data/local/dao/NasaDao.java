@@ -1,6 +1,7 @@
 package com.example.myapplication.data.local.dao;
 
 
+import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
@@ -14,7 +15,7 @@ import java.util.List;
 public interface NasaDao {
 
     @Query("SELECT * from NasaEntity")
-    List<NasaEntity> getAll();
+    LiveData<List<NasaEntity>> getAllEntities();
 
     @Insert
     void insertAll(NasaEntity... nasaEntities);

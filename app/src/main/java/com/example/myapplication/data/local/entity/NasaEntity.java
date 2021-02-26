@@ -7,6 +7,9 @@ import androidx.room.PrimaryKey;
 @Entity
 public class NasaEntity {
 
+    public int getId() {
+        return id;
+    }
     public void setId(int id) {
         this.id = id;
     }
@@ -14,20 +17,32 @@ public class NasaEntity {
     @PrimaryKey
     private int id;
 
+    private String title;
+    private String explanation;
+    private String url;
+
     public String getTitle() {
         return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
     }
 
     public String getExplanation() {
         return explanation;
     }
 
+    public void setExplanation(String explanation) {
+        this.explanation = explanation;
+    }
+
     public String getUrl() {
         return url;
     }
 
-    private String title;
-    private String explanation;
-    private String url;
+    public void setUrl(String url) {
+        this.url = url;
+    }
 
 }
