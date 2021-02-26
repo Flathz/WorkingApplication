@@ -40,7 +40,7 @@ public class Nasa implements Parcelable {
         this.explanation = explanation;
     }
 
-    @PrimaryKey
+    @PrimaryKey(autoGenerate = true)
     private int id;
     private String title;
     private String url;

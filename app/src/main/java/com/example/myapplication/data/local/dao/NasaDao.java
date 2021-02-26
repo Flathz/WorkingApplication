@@ -15,16 +15,16 @@ import java.util.List;
 public interface NasaDao {
 
     @Query("SELECT * from Nasa")
-    LiveData<List<Nasa>> getAllEntities();
-
-    @Insert
-    void insertAll(Nasa... nasas);
+    LiveData<List<Nasa>> getAllNasa();
 
     @Insert
     void insert(Nasa nasa);
 
+    @Insert
+    void insertAll(Nasa ...nasas);
+
     @Delete
-    void delete(Nasa nasa);
+    void deleteAll(Nasa... nasas);
 
 
 }
