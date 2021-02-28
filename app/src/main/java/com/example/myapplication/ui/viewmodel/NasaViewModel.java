@@ -35,7 +35,6 @@ public class NasaViewModel extends AndroidViewModel {
     public NasaViewModel(@NonNull Application application) {
         super(application);
         nasaList = new MutableLiveData<>();
-        //nasaRoomList = repository.getAllNasaItems();
         repository = new Repository(application);
     }
 
@@ -60,6 +59,9 @@ public class NasaViewModel extends AndroidViewModel {
         return nasaList;
     }
 
+    /** Method used to add data to our List of nasa item from the API.
+     *
+     */
     public void makeApiCall(){
         ApiService apiService = repository.getApiService();
         Call<List<Nasa>> call = apiService.getNasaList();

@@ -34,29 +34,4 @@ public abstract class NasaDatabase extends RoomDatabase {
         }
         return instance;
     }
-
-    /*
-
-    private static RoomDatabase.Callback roomCallback = new RoomDatabase.Callback(){
-        @Override
-        public void onCreate(@NonNull SupportSQLiteDatabase db) {
-            super.onCreate(db);
-        }
-    };
-
-    private static class PopulateDbAsyncTask extends AsyncTask<Void,Void,Void> {
-        private NasaDao nasaDao;
-
-        private PopulateDbAsyncTask(NasaDatabase db){
-            nasaDao = db.nasaDao();
-        }
-
-        @Override
-        protected Void doInBackground(Void... voids) {
-            nasaDao.insert(new Nasa());
-            return null;
-        }
-    }
-     */
-
 }

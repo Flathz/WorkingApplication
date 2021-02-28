@@ -6,6 +6,9 @@ import android.os.Parcelable;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
+/** Model of our API and entity of our local database.
+ * Since our application doesn't add much, i didn't create a separate entity.
+ */
 @Entity
 public class Nasa implements Parcelable {
     public int getId() {

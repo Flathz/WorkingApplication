@@ -13,6 +13,10 @@ import com.example.myapplication.data.remote.network.RetroInstance;
 
 import java.util.List;
 
+/** Repository designed to choose the source of our data.
+ * Functions designed to interact with our database and
+ *
+ */
 public class Repository {
 
     private ApiService apiService = RetroInstance.getRetrofit().create(ApiService.class);

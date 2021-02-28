@@ -11,6 +11,9 @@ import com.example.myapplication.data.remote.model.Nasa;
 
 import java.util.List;
 
+/** Dao for local database
+ * Add some elements and modify them if you wish for more flexibility
+ */
 @Dao
 public interface NasaDao {
 

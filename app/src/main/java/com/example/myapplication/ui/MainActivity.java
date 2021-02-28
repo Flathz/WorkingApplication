@@ -30,6 +30,11 @@ public class MainActivity extends AppCompatActivity {
     private RecyclerViewAdapter adapter;
 
 
+    /** Main function of our application.
+     * Designed to make a series of callback in order to initialize the recyclerview, adapter, viewmodel
+     * and to set the data to the viewmodel.
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,6 +44,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
+    /** Function to bind the recycler view to the adapter.
+     *
+     */
     private void initRecyclerView(){
         Log.d(TAG, "initRecyclerView: init recyclerView");
         RecyclerView recyclerView = findViewById(R.id.recycler_view);
@@ -49,6 +57,11 @@ public class MainActivity extends AppCompatActivity {
         initViewModel();
     }
 
+    /** Function to switch between layout on switch press between Linear and grid layout.
+     *
+     * @param recyclerView
+     * @param switchMaterial
+     */
     private void changeLayoutOnSwitchPress(RecyclerView recyclerView, SwitchMaterial switchMaterial) {
         recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
         switchMaterial.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
@@ -65,6 +78,10 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+
+    /** Function to initialize our viewmodel and data.
+     *
+     */
     private void initViewModel() {
         TextView notFound = findViewById(R.id.no_results);
         nasaViewModel = new ViewModelProvider(this, ViewModelProvider.AndroidViewModelFactory.getInstance(this.getApplication())).get(NasaViewModel.class);

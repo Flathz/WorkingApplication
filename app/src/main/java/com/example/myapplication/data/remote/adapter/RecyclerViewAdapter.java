@@ -27,6 +27,10 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     public List<Nasa> nasaList;
     private Context mContext;
 
+    /** In case we wish to set the data manually
+     * In our application this isn't the case.
+     * @param nasaList
+     */
     public void setNasaList(List<Nasa> nasaList) {
         this.nasaList = nasaList;
         // in case we set data manually
@@ -46,6 +50,11 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         return holder;
     }
 
+    /** Function to bind data to each view
+     *
+     * @param holder
+     * @param position
+     */
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         Log.d(TAG, "onBindViewHolder: called.");
@@ -58,6 +67,10 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         holder.imageTitle.setText(nasaList.get(position).getTitle());
         holder.parentLayout.setOnClickListener(new View.OnClickListener() {
 
+            /** Listener everytime we cllick on our view
+             *
+             * @param v
+             */
             @Override
             public void onClick(View v) {
                 Log.d(TAG, "onClick: clicked on: " + nasaList.get(position).getTitle());
@@ -65,6 +78,9 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
                 onClickGetData();
             }
 
+            /** Function to create an intent on click and pass it to the detailActivity.
+             *
+             */
             private void onClickGetData() {
                 Nasa selectedNasaItem =  nasaList.get(position);
                 Intent detailActivity = new Intent(mContext, NasaDetails.class);
@@ -83,6 +99,9 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         return 0;
     }
 
+    /** View Holder will link view elements for each element of our recycler view
+     *
+     */
     public class ViewHolder extends RecyclerView.ViewHolder{
 
         CircleImageView image;

@@ -10,6 +10,9 @@ import com.bumptech.glide.Glide;
 import com.example.myapplication.R;
 import com.example.myapplication.data.remote.model.Nasa;
 
+/** Class designed to display the details of a list item.
+ *
+ */
 public class NasaDetails extends AppCompatActivity {
 
     private ImageView imageViewDetails;
